@@ -1,4 +1,5 @@
 import { Picture } from "../models/Picture.js";
+import fs from "node:fs"; 
 
 async function create(req, res) {
     try {
@@ -30,17 +31,32 @@ async function read(req, res) {
     }
 }
 
-async function remove(req, res) {
+async function readById(req, res) {
     try {
-        const { id } = req.params; 
-        if(!id) res.status(500).json({error: "Picture ID is required"}); 
+        const { id } = req.params;
+        const picture = await Picture.findOne({_id: id});
+        if(!picture) res.status(404).json({error: "Could not find picture"}); 
         
-        const deletedPicture = await Picture.findOneAndDelete({_id: id});
-        res.json({deletedPicture, message: "Picture deleted successfully!"}); 
-    } catch(error) {
-        res.status(500).json({error: `Could not delete image`}); 
+        res.json({picture}); 
+    } catch (error) {
+        res.status(500).json({error: `Could not find data: ${error}`}); 
     }
 }
 
-export default { create, read, remove }; 
+async function remove(req, res) {
+    try { 
+        const { id } = req.params; 
+        const picture = await Picture.findOne({_id: id.toString()}); 
+        if(!picture) res.status(404).json({error: "Could not find picture"}); 
+        
+        fs.unlinkSync(picture.src); 
+        const result = await Picture.findOneAndDelete({_id: id}); 
+
+        res.json({result, message: "Picture deleted successfully!"}); 
+    } catch(error) {
+        res.status(500).json({error: `Could not delete picture`}); 
+    }
+}
+
+export default { create, read, readById, remove }; 
 
