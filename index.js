@@ -7,10 +7,14 @@ config();
 const app = express(); 
 const port = process.env.PORT; 
 
-app.use(express.urlencoded({extended: true})); 
+app.use(express.urlencoded({ extended: true })); 
 app.use(express.json()); 
 app.use("/pictures", PictureRouter); 
 
+
+app.get("/", (req, res) => {
+    res.sendFile(process.cwd() + "/views/index.html"); 
+});
 
 
 const listener = app.listen(port || 3000, () => {

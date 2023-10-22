@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+
+        <!--style-->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        
+        <div class="container">
+            <h1>Upload Form</h1>
+            <form action="/pictures" class="upload-form" method="post" enctype="multipart/form-data">
+                <div class="form-group">
+                    <label for="file">File name / description: </label>
+                    <input type="text" name="name" id="name" required maxlength="32" minlength="4">
+                </div>
+
+                <div class="form-group">
+                    <label for="file">File directory</label>
+                    <input type="file" name="file" id="file" required>
+                </div>
+
+                <div class="form-group">
+                    <button type="submit" id="submit">Submit</button>
+                </div>
+            </form>
+
+            <p>To see the uploaded pictures, go to <a href="/pictures">/pictures</a> </p>
+        </div>
+    </body>
+</html>

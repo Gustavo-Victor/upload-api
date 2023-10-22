@@ -10,7 +10,7 @@ GET http://localhost:4000/pictures/
 
 
 ### 
-DELETE http://localhost:4000/pictures/
+DELETE http://localhost:4000/pictures/65359006fa403d3c6d30a94a
 
 
 
