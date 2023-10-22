@@ -6,6 +6,6 @@ const pictureSchema = new Schema({
     src: { type: String, required: true }
 });
 
-export const Model = mongoose.model("Picture", pictureSchema); 
+export const Picture = mongoose.model("Picture", pictureSchema); 
 
 
