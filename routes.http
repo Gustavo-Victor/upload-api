@@ -1,0 +1,16 @@
+POST http://localhost:4000/pictures/
+Content-Type: application/json
+
+{
+    "name": "Gustavo"
+}
+
+### 
+GET http://localhost:4000/pictures/
+
+
+### 
+DELETE http://localhost:4000/pictures/
+
+
+
