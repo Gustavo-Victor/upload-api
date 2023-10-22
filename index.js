@@ -1,6 +1,7 @@
 import express from "express"; 
 import { config } from "dotenv"; 
 import mongoose from "mongoose"; 
+import "./db.js"; 
 config(); 
 
 const app = express(); 
@@ -8,7 +9,6 @@ const port = process.env.PORT;
 
 app.use(express.urlencoded({extended: true})); 
 app.use(express.json()); 
-app.use(express.static('public')); 
 
 app.get('/', (req, res) => {
     res.send(`<h1>Hello World!</h1>`);
