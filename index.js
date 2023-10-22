@@ -1,7 +1,7 @@
 import express from "express"; 
 import { config } from "dotenv"; 
-import mongoose from "mongoose"; 
 import "./db.js"; 
+import PictureRouter from "./routes/picture.js"; 
 config(); 
 
 const app = express(); 
@@ -9,10 +9,8 @@ const port = process.env.PORT;
 
 app.use(express.urlencoded({extended: true})); 
 app.use(express.json()); 
+app.use("/pictures", PictureRouter); 
 
-app.get('/', (req, res) => {
-    res.send(`<h1>Hello World!</h1>`);
-});
 
 
 const listener = app.listen(port || 3000, () => {
