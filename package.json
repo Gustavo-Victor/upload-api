@@ -1,8 +1,9 @@
 {
   "name": "upload-training",
   "version": "1.0.0",
-  "description": "An uplaod API made using mongodb, express and multer",
+  "description": "An uplaod API made using mongoose, express and multer",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js",
