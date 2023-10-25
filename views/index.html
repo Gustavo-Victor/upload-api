@@ -1,34 +1,42 @@
 <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Document</title>
+<html lang="en-GB">
 
-        <!--style-->
-        <link rel="stylesheet" href="style.css">
-    </head>
-    <body>
-        
-        <div class="container">
-            <h1>Upload Form</h1>
-            <form action="/pictures" class="upload-form" method="post" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label for="file">File name / description: </label>
-                    <input type="text" name="name" id="name" required maxlength="32" minlength="4">
-                </div>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Metadata</title>
+    <link rel="shortcut icon" href="https://cdn.freecodecamp.org/universal/favicons/favicon-32x32.png"
+        type="image/x-icon" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
+    <link href="/public/style.css" rel="stylesheet" type="text/css">
+</head>
 
-                <div class="form-group">
-                    <label for="file">File directory</label>
-                    <input type="file" name="file" id="file" required>
-                </div>
+<body>
+    <div class="container">
+        <h2>API Project: File Metadata Microservice</h2>
 
-                <div class="form-group">
-                    <button type="submit" id="submit">Submit</button>
-                </div>
+        <h3>Usage:</h3>
+        <p>
+            Please Upload a File ...
+        </p>
+        <div class="view">
+            <h4 id="output"></h4>
+            <form enctype="multipart/form-data" method="POST" action="/api/fileanalyse">
+                <input id="inputfield" type="file" name="upfile">
+                <input id="button" type="submit" value="Upload">
             </form>
-
-            <p>To see the uploaded pictures, go to <a href="/pictures">/pictures</a> </p>
         </div>
-    </body>
+    </div>
+    <div class="footer">
+        <p>
+            Challenge by
+            <a href="http://www.freecodecamp.com" target="_blank">freeCodeCamp</a>
+        </p>
+        <p>
+            Coded by
+            <a href="http://github.com/Gustavo-Victor/" target="_blank">Gustavo Victor</a>
+        </p>
+    </div>
+</body>
+
 </html>
