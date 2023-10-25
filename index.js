@@ -1,24 +1,22 @@
-import express from "express"; 
-import { config } from "dotenv"; 
+import express from 'express';
+import cors from 'cors';
+import fileRoute from "./routes/fileRoute.js"; 
 import "./db.js"; 
-import PictureRouter from "./routes/picture.js"; 
-config(); 
 
-const app = express(); 
-const port = process.env.PORT; 
+const app = express();
 
-app.use(express.static("public/")); 
+app.use(cors());
 app.use(express.urlencoded({ extended: true })); 
 app.use(express.json()); 
-app.use("/pictures", PictureRouter); 
+app.use('/public', express.static(process.cwd() + '/public'));
+app.use("/api/fileanalyse", fileRoute); 
 
-
-app.get("/", (req, res) => {
-    res.sendFile(process.cwd() + "/views/index.html"); 
+app.get('/', function (req, res) {
+  res.sendFile(process.cwd() + '/views/index.html');
 });
 
 
-const listener = app.listen(port || 3000, () => {
-    console.log(`App is running on http://localhost:${port}`); 
+const port = process.env.PORT || 3000;
+app.listen(port, function () {
+  console.log('Your app is listening on port ' + port)
 });
-
