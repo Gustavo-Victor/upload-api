@@ -1,7 +1,7 @@
 {
-  "name": "upload-training",
+  "name": "file-metadata-microservice",
   "version": "1.0.0",
-  "description": "An uplaod API made using mongoose, express and multer",
+  "description": "An uplaod microservice made using mongoose, express and multer",
   "main": "index.js",
   "type": "module",
   "scripts": {
@@ -16,10 +16,11 @@
     "mongodb",
     "nosql",
     "upload-api",
-    "upload"
+    "upload",
+    "microservice"
   ],
-  "author": "",
-  "license": "ISC",
+  "author": "Gustavo Victor",
+  "license": "MIT",
   "dependencies": {
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
@@ -28,5 +29,9 @@
   },
   "devDependencies": {
     "nodemon": "^3.0.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/freeCodeCamp/boilerplate-project-filemetadata"
   }
 }
